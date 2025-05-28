@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<clothingItem>
+	<m_MaleModel></m_MaleModel>
+	<m_FemaleModel>Skinned\ZWBF_Belly_05</m_FemaleModel>
+	<m_GUID>18b89896-be05-44a5-9a53-70a3d411909f</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>false</m_AllowRandomTint>
+	<m_AttachBone></m_AttachBone>
+	<textureChoices>Body/FemaleBody01</textureChoices>
+	<textureChoices>Body/FemaleBody02</textureChoices>
+	<textureChoices>Body/FemaleBody03</textureChoices>
+	<textureChoices>Body/FemaleBody04</textureChoices>
+	<textureChoices>Body/FemaleBody05</textureChoices>
+</clothingItem>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fileGuidTable>
+    <files>
+        <path>media/clothing/clothingItems/ZWBF_Belly_00.xml</path>
+        <guid>18b89896-be00-44a5-9a53-70a3d411909f</guid>
+    </files>
+	<files>
+        <path>media/clothing/clothingItems/ZWBF_Belly_01.xml</path>
+        <guid>18b89896-be01-44a5-9a53-70a3d411909f</guid>
+    </files>
+	<files>
+        <path>media/clothing/clothingItems/ZWBF_Belly_02.xml</path>
+        <guid>18b89896-be02-44a5-9a53-70a3d411909f</guid>
+    </files>
+	<files>
+        <path>media/clothing/clothingItems/ZWBF_Belly_03.xml</path>
+        <guid>18b89896-be03-44a5-9a53-70a3d411909f</guid>
+    </files>
+	<files>
+        <path>media/clothing/clothingItems/ZWBF_Belly_04.xml</path>
+        <guid>18b89896-be04-44a5-9a53-70a3d411909f</guid>
+    </files>
+	<files>
+        <path>media/clothing/clothingItems/ZWBF_Belly_05.xml</path>
+        <guid>18b89896-be05-44a5-9a53-70a3d411909f</guid>
+    </files>
+	<files>
+        <path>media/clothing/clothingItems/ZWBF_Belly_06.xml</path>
+        <guid>18b89896-be06-44a5-9a53-70a3d411909f</guid>
+    </files>
+	<files>
+        <path>media/clothing/clothingItems/ZWBF_Belly_07.xml</path>
+        <guid>18b89896-be07-44a5-9a53-70a3d411909f</guid>
+    </files>
+	<files>
+        <path>media/clothing/clothingItems/ZWBF_Belly_08.xml</path>
+        <guid>18b89896-be08-44a5-9a53-70a3d411909f</guid>
+    </files>
+	<files>
+        <path>media/clothing/clothingItems/ZWBF_Belly_09.xml</path>
+        <guid>18b89896-be09-44a5-9a53-70a3d411909f</guid>
+    </files>
+	<files>
+        <path>media/clothing/clothingItems/ZWBF_Belly_10.xml</path>
+        <guid>18b89896-be10-44a5-9a53-70a3d411909f</guid>
+    </files>
+</fileGuidTable>

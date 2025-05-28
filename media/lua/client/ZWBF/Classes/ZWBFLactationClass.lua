@@ -2,7 +2,7 @@
 local Events = Events
 local ZombRand = ZombRand
 local SandboxVars = SandboxVars
-local triggerEvent = ZWBFEngorgementUpdate
+local triggerEvent = triggerEvent
 local LuaEventManager = LuaEventManager
 
 local SBVars = SandboxVars.ZWBF

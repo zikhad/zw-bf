@@ -25,4 +25,10 @@ UI_EN = {
     UI_Trait_NoMenstrualCramps = "No Menstrual Cramps",
     UI_Trait_NoMenstrualCramps_Description = "You hardly feel menstrual cramps <br>- You menstruation does not have any bad effect",
 
+    /* ModOptions */
+	UI_ZWBF_Option_ShowBelly				= "Show Pregnancy Belly",
+	UI_ZWBF_Option_ShowBelly_TT			= "Shows custom belly shapes during pregnancy,<br>has some clipping but looks cool.",
+	UI_ZWBF_Option_ShowRecoveryBelly			= "Show Recovery Belly",
+	UI_ZWBF_Option_ShowRecoveryBelly_TT		= "Shows the player's belly slowly recovering after birth,<br>rather than returning to its normal shape immediately.<br>(requires Pregnancy Bellies to be enabled)",
+
 }

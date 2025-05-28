@@ -15,6 +15,9 @@ local BodyPartType = BodyPartType
 -- Sandbox Variables
 local SBVars = SandboxVars.ZWBF
 
+-- Mod Options
+local ZWBFModOptions = require("ZWBF/ZWBFModOptions")
+
 local ZWBFActionBirth = require("ZWBF/Actions/ZWBFBirth")
 
 -- This class will handle the pregnancy system
@@ -33,6 +36,15 @@ PregnancyClass.BABY_LIST = {
 	"Baby_10_b", "Baby_11", "Baby_11_b", "Baby_12", "Baby_12_b", "Baby_13",
 	"Baby_14"
 }
+PregnancyClass.BELLIES = {
+	instanceItem("ZWBF.ZWBF_Belly_00"), instanceItem("ZWBF.ZWBF_Belly_01"),
+	instanceItem("ZWBF.ZWBF_Belly_02"), instanceItem("ZWBF.ZWBF_Belly_03"),
+	instanceItem("ZWBF.ZWBF_Belly_04"), instanceItem("ZWBF.ZWBF_Belly_05"),
+	instanceItem("ZWBF.ZWBF_Belly_06"), instanceItem("ZWBF.ZWBF_Belly_07"),
+	instanceItem("ZWBF.ZWBF_Belly_08"), instanceItem("ZWBF.ZWBF_Belly_09"),
+	instanceItem("ZWBF.ZWBF_Belly_10"),
+}
+
 PregnancyClass.LaborAnimationTime = 5500
 
 --- Constructor
@@ -188,8 +200,62 @@ function PregnancyClass:onLaborUpdate()
 	triggerEvent("ZWBFPregnancyLaborUpdate", self)
 end
 
+-- Add visual bellies during pregnancy
+function PregnancyClass:updateBelly(level)
+	local showRecoveryBelly = true
+
+	-- use modoptions if available
+	if ModOptions and ModOptions.getInstance then
+		local showBelly = ZWBFModOptions.options_data.showBelly.value
+		if showBelly == false then
+			self.player:setWornItem("ZWBFPregnancyBelly", nil) -- clear any existing bellies
+			return -- exit function if feature disabled
+		end
+		showRecoveryBelly = ZWBFModOptions.options_data.showRecoveryBelly.value
+	end
+	
+	level = math.min(#self.BELLIES, math.floor((level or self:getProgress() + 0.06) * #self.BELLIES))
+	
+	if showRecoveryBelly then
+		-- postpartum/recovery belly
+		-- doesn't work unless updateBelly is also called during recovery phase
+		
+		local wombData = self.player:getModData().ZWBFWomb
+		
+		if not self:getIsPregnant() and wombData and wombData.CycleDay < 1 then
+			-- recovery belly shrinks over time
+			level = 1 + math.floor((-(wombData.CycleDay-1) / SBVars.PregnancyRecovery) * 5)
+		elseif self:getInLabor() then
+			-- recovery belly enabled, giving birth shrinks belly partially
+			level = #self.BELLIES - math.ceil((math.min(math.max(0, self.data.LaborProgress-0.5), 0.2) / 0.2) * 5)
+		end
+	elseif self:getInLabor() then
+		-- recovery belly disabled, giving birth shrinks belly fully
+		level = #self.BELLIES - math.ceil((math.min(math.max(0, self.data.LaborProgress-0.5), 0.2) / 0.2) * #self.BELLIES)
+	end
+	
+	-- setup visible pregnancy belly
+	if level > 1 then
+		self.BELLIES[level]:getVisual():setTextureChoice(self.player:getHumanVisual():getSkinTextureIndex()) -- update skin color
+		self.player:setWornItem("ZWBFPregnancyBelly", self.BELLIES[level])
+	elseif self.player:getWornItem("ZWBFPregnancyBelly") ~= nil then -- only remove once
+		self.player:setWornItem("ZWBFPregnancyBelly", nil)
+	end
+
+	-- run speed modifier fix if installed/enabled (https://steamcommunity.com/sharedfiles/filedetails/?id=3137744870)
+	-- bigger bellies should apply more slowdown, but RunSpeedModifier is disabled in vanilla
+	local RMF = require("Run Modifier Fix")
+	if RMF then RMF() end
+end
+
+-- Reset belly size / remove custom bellies
+function PregnancyClass:resetBelly()
+	self.player:setWornItem("ZWBFPregnancyBelly", nil)
+end
+
 --- Called every in-game minute.
 function PregnancyClass:onEveryOneMinute()
+	self:updateBelly() -- call updateBelly when not pregnant for postpartum/recovery belly and cleanup
 	if not self:getIsPregnant() then return end
 	self:onCheckLabor()
 	self:moodle()
@@ -297,12 +363,14 @@ PregnancyClass.Debug = {}
 
 --- (DEBUG) Advances pregnancy progress by a specified number of hours
 function PregnancyClass.Debug:advancePregnancy(hours)
-	self.data.PregnancyCurrent = self.data.PregnancyCurrent + (hours * 60)
+	local pregnancyData = getPlayer():getModData().ZWBFPregnancy
+	pregnancyData.PregnancyCurrent = pregnancyData.PregnancyCurrent + (hours * 60)
 end
 
 --- (DEBUG) Advances pregnancy to just before labor
 function PregnancyClass.Debug:advanceToLabor()
-	self.data.PregnancyCurrent = self.data.PregnancyDuration - 1
+	local pregnancyData = getPlayer():getModData().ZWBFPregnancy
+	pregnancyData.PregnancyCurrent = pregnancyData.PregnancyDuration - 1
 end
 
 return PregnancyClass

@@ -150,8 +150,7 @@ function WombClass:addSperm(amount)
 end
 
 --- Modify the variables according to player Traits
-function WombClass:applyTraits()
-    local player = self.player
+function WombClass:applyTraits(player)
     -- Hyperfertile
     if player:HasTrait("Fertile") then
         -- +50% fertility
@@ -174,7 +173,7 @@ function WombClass:onCreatePlayer(player)
     self.SBvars.FertilityBonus = SBVars.FertilityBonus
 
     -- Apply Traits that are related to the Womb
-    self:applyTraits()
+    self:applyTraits(player)
 
     local data = player:getModData().ZWBFWomb or {}
 

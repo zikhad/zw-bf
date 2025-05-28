@@ -1,0 +1,102 @@
+module ZWBF {
+	imports { Base }
+	
+	item ZWBF_Belly_00
+    {
+        Type				= Clothing,
+        DisplayCategory		= Appearance,
+		BodyLocation		= ZWBFPregnancyBelly,
+        ClothingItem		= ZWBF_Belly_00,
+		Weight				= 1.0,
+    }
+	item ZWBF_Belly_01
+    {
+        Type				= Clothing,
+        DisplayCategory		= Appearance,
+		BodyLocation		= ZWBFPregnancyBelly,
+        ClothingItem		= ZWBF_Belly_01,
+		RunSpeedModifier	= 0.98,
+		Weight				= 2.0,
+    }
+	item ZWBF_Belly_02
+    {
+        Type				= Clothing,
+        DisplayCategory		= Appearance,
+		BodyLocation		= ZWBFPregnancyBelly,
+        ClothingItem		= ZWBF_Belly_02,
+		RunSpeedModifier	= 0.96,
+		Weight				= 4.0,
+    }
+	item ZWBF_Belly_03
+    {
+        Type				= Clothing,
+        DisplayCategory		= Appearance,
+		BodyLocation		= ZWBFPregnancyBelly,
+        ClothingItem		= ZWBF_Belly_03,
+		RunSpeedModifier	= 0.94,
+		Weight				= 6.0,
+    }
+	item ZWBF_Belly_04
+    {
+        Type				= Clothing,
+        DisplayCategory		= Appearance,
+		BodyLocation		= ZWBFPregnancyBelly,
+        ClothingItem		= ZWBF_Belly_04,
+		RunSpeedModifier	= 0.92,
+		Weight				= 10.0,
+    }
+	item ZWBF_Belly_05
+    {
+        Type				= Clothing,
+        DisplayCategory		= Appearance,
+		BodyLocation		= ZWBFPregnancyBelly,
+        ClothingItem		= ZWBF_Belly_05,
+		RunSpeedModifier	= 0.90,
+		Weight				= 14.0,
+    }
+	item ZWBF_Belly_06
+    {
+        Type				= Clothing,
+        DisplayCategory		= Appearance,
+		BodyLocation		= ZWBFPregnancyBelly,
+        ClothingItem		= ZWBF_Belly_06,
+		RunSpeedModifier	= 0.88,
+		Weight				= 18.0,
+    }
+	item ZWBF_Belly_07
+    {
+        Type				= Clothing,
+        DisplayCategory		= Appearance,
+		BodyLocation		= ZWBFPregnancyBelly,
+        ClothingItem		= ZWBF_Belly_07,
+		RunSpeedModifier	= 0.86,
+		Weight				= 22.0,
+    }
+	item ZWBF_Belly_08
+    {
+        Type				= Clothing,
+        DisplayCategory		= Appearance,
+		BodyLocation		= ZWBFPregnancyBelly,
+        ClothingItem		= ZWBF_Belly_08,
+		RunSpeedModifier	= 0.84,
+		Weight				= 26.0,
+    }
+	item ZWBF_Belly_09
+    {
+        Type				= Clothing,
+        DisplayCategory		= Appearance,
+		BodyLocation		= ZWBFPregnancyBelly,
+        ClothingItem		= ZWBF_Belly_09,
+		RunSpeedModifier	= 0.82,
+		Weight				= 30.0,
+    }
+	item ZWBF_Belly_10
+    {
+        Type				= Clothing,
+        DisplayCategory		= Appearance,
+		BodyLocation		= ZWBFPregnancyBelly,
+        ClothingItem		= ZWBF_Belly_10,
+		RunSpeedModifier	= 0.80,
+		Weight				= 35.0,
+    }
+}
